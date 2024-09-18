@@ -12,7 +12,7 @@ def quadratic(a,b,c):
         return(x1,x2)
     else:
 
-    #if b is negative, then we want to add q to get something small
+    #if b is negative, then we want to subtract q to get something small
         x1=np.float32((-b-q)/(2*a))
         x2=np.float32((2*c)/(-b-q))
         return(x1,x2)
