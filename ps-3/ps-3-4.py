@@ -58,7 +58,7 @@ for i in range(Nvals.size):
 
 
 
-"""
+
 
 fig, ax = plt.subplots(2,2)
 ax[0,0].plot(Nvals,avgs)
@@ -93,7 +93,6 @@ for i in range(len(Nvals)):
     plt.savefig(f'N={Nvals[i]}.png')
     plt.clf()
 
-"""
 
 
 i=0
