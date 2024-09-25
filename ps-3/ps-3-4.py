@@ -58,7 +58,7 @@ for i in range(Nvals.size):
 
 
 
-
+"""
 
 fig, ax = plt.subplots(2,2)
 ax[0,0].plot(Nvals,avgs)
@@ -86,10 +86,32 @@ plt.savefig('momentsVsN.png')
 
 plt.clf()
 
+#plot a histogram of the yvals for each gaussian
 for i in range(len(Nvals)):
     plt.title(f'Histogram with N={Nvals[i]}')
     plt.hist(yvals[i], bins=50, label=f'N = {Nvals[i]}')
     plt.savefig(f'N={Nvals[i]}.png')
     plt.clf()
 
-# Comparing with the theoretical Guassian
+"""
+
+
+i=0
+thresh_s=skews[0]*0.01
+
+nval_s=0
+while skews[i]>thresh_s:
+    nval_s=Nvals[i+1]
+    i+=1
+
+i=0
+nval_k=0
+thresh_k=skews[0]*0.01
+while kurts[i]>thresh_k:
+    nval_k=Nvals[i+1]
+    i+=1
+
+
+#15
+print("The value of where the skew becomes approximately less than one percent of the skew of N=1 is: "+ str(nval_s))
+print("The value of where the skew becomes approximately less than one percent of the kurtosis of N=1 is: "+ str(nval_k))
