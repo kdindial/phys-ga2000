@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{phys-ga-2000-ps7}
+\author{knd286 }
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+At the Lagrange point, the angular velocity of the Satellite/mass should equal the angular velocity of the moon. 
+
+\begin{equation}
+    \frac{GM}{R^2}=\omega^2R=\omega^2r
+\end{equation}
+solving for $\omega$:
+\begin{equation}
+    \omega^2=\frac{GM}{R^3}
+\end{equation}
+
+Plugging this into the equation from the book:
+
+\begin{equation}
+    \frac{GM}{r^2}-\frac{Gm}{(R-r)^2}=\frac{GMr}{R^3}
+\end{equation}
+
+Then, we can multiply everything by $\frac{R^2}{M}$
+
+\begin{equation}
+    \frac{GMR^2}{Mr^2}-\frac{GmR^2}{M(R-r)^2}=\frac{GMr}{MR}
+\end{equation}
+
+and then make the substitution: $m'=\frac{m}{M}$ and $r'=\frac{r}{R}$"
+
+\begin{equation}
+    \frac{1}{r'^2}-\frac{m'}{(1-r')^2}=r'
+\end{equation}
+
+To avoid dividing by zero, I am going to multiply everything by $r^2(1-r^2)$. finally we have:
+\begin{equation}
+    (1-r')^2-m'r'^2-r'^3(1-r')^2=0
+\end{equation}
+Once I ahd this equation, I used Newtons method to find the root. 
+I found that the lagrange point between the earth and moon is 471,13,183km from earth. The lagrange point between the sun and the earth is 147,113,183km from the sun and the lagrange point for a jupyter massed object orbitting the sun would be 138,460,168km from the sun.
+
+\section{Problem 2}
+For the second problem we are asked to minimize $y =(x - 0.3)^2 \exp(x)$. This function clearly has a minimum at x=0.3 but I could see how this could trick a computer, if it tries seraching for a minimum near negative infinity. To implement brant's method I copied the code from "numerical recipes page 496. This version of brents found a minimum at min at x=0.2999999999966198. The scipy version of brents found a min at x=0.300000000023735
+
+\end{document}
