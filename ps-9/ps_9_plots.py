@@ -11,8 +11,8 @@ sho_v= sho[:, 1]
 sho_t= sho[:, 2]
 
 plt.plot(sho_t,sho_x,label="initial x=1")
-plt.ylabel('displacement (m)')
-plt.xlabel('time elapsed (s)')
+plt.xlabel('displacement (m)')
+plt.ylabel('time elapsed (s)')
 plt.title("simple harmonic oscilator with runge kutta")
 plt.savefig(f'{path}/figs/8_6_a.png')
 
@@ -40,8 +40,8 @@ aho=np.array([aho1,aho2,aho3])
 for i in range (len(aho)):
     plt.plot(aho[i][:,2],aho[i][:,0],label=f'initial x={aho[i][0,0]}')
 
-plt.ylabel('displacement (m)')
-plt.xlabel('time elapsed (s)')
+plt.xlabel('displacement (m)')
+plt.ylabel('time elapsed (s)')
 plt.legend()
 plt.title("anharmonic oscilator with different intial conditions")
 plt.savefig(f'{path}/figs/aho.png')
@@ -64,8 +64,8 @@ for i in range (len(aho)):
     plt.plot(aho[i][:,0],aho[i][:,1],label=f'initial x={aho[i][0,0]}')
 
 plt.legend()
-plt.ylabel('displacement (m)')
-plt.xlabel('velocity (m/s)')
+plt.xlabel('displacement (m)')
+plt.ylabel('velocity (m/s)')
 plt.title("Anharmonic Oscilator Phase Space Diagram")
 plt.savefig(f'{path}/figs/aho_phase.png')
 
@@ -82,8 +82,8 @@ for i in range (len(vpo)):
     plt.plot(vpo[i][:,0],vpo[i][:,1],label=f'mu={mu[i]}, w=1')
 
 plt.legend()
-plt.ylabel('displacement (m)')
-plt.xlabel('velocity (m/s)')
+plt.xlabel('displacement (m)')
+plt.ylabel('velocity (m/s)')
 plt.title("Van der Pol Oscillator Oscilator Phase Space Diagram")
 plt.savefig(f'{path}/figs/vdp_phase.png')
 
@@ -93,11 +93,11 @@ plt.clf()
 
 m1 = np.loadtxt(f'{path}/results/mass1.csv', delimiter=',', skiprows=1)
 m2 = np.loadtxt(f'{path}/results/mass5.csv', delimiter=',', skiprows=1)
-m3 = np.loadtxt(f'{path}/results/mass10.csv', delimiter=',', skiprows=1)
+m3 = np.loadtxt(f'{path}/results/mass0.01.csv', delimiter=',', skiprows=1)
 
 
 trajectories=[m1,m2,m3]
-masses=[1,5,10]
+masses=[1,5,0.01]
 for i in range (len(trajectories)):
     plt.plot(trajectories[i][:,0],trajectories[i][:,1],label=f'mass={masses[i]}kg')
 plt.legend()

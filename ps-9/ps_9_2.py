@@ -53,8 +53,6 @@ def rk4(a:np.float64 , b:np.float64 , N:int , f, r):
     a*=tprime
     b*=tprime
 
-
-
     h=(b-a)/N
 
     #rescale x,y, vx, vy:
@@ -64,7 +62,7 @@ def rk4(a:np.float64 , b:np.float64 , N:int , f, r):
     r[3]=r[3]*lprime/tprime
 
     tpoints = np.arange(a,b,h)
-    
+
     xpoints= []
     vxpoints= []
     ypoints= []
@@ -72,15 +70,15 @@ def rk4(a:np.float64 , b:np.float64 , N:int , f, r):
 
     for t in tpoints:
 
-        
+
         xpoints.append(r[0])
 
         #lets say that if the cannon ball hits the ground it stops moving in y
         ypoints.append(r[1])
-        
+
         vxpoints.append(r[2])
         vypoints.append(r[3])
-        
+  
         k1= h * f(r , t)
         k2= h * f(r + 0.5 * k1, t + 0.5*h)
         k3= h * f(r + 0.5 * k2, t + 0.5*h)
@@ -94,5 +92,3 @@ def rk4(a:np.float64 , b:np.float64 , N:int , f, r):
 
 m1=rk4(a=0.0,b=70.0, N=500.0, f=f,r=initial_vals.copy())
 np.savetxt( f'{cwd}/results/mass{m}.csv', m1, delimiter=',', header='x,y,vx,vy,t', comments='', fmt='%f')
-
-
