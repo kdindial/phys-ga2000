@@ -57,7 +57,7 @@ psi_t1=diffusion_cn_step(psi_t0,dt,dx)
 psi_t2=diffusion_cn_step(psi_t1,dt,dx)
 
 
-#perform m time steps:
+#perform time steps:
 tsteps=int(200000)
 PSI = np.zeros((tsteps + 1, N + 1), dtype=complex)
 PSI[0,:]=psi_t0
@@ -74,8 +74,8 @@ for i in range(frames):
 
     plt.plot ( xvals*1e9, PSI[i*int(big_step),:])
     plt.xlabel('X (nm)')
-    plt.ylabel('Real(PSI) m^-1')
-    plt.title(f'PSI(X) after {i*big_step*dt} s')
+    plt.ylabel('Real(PSI) unnormalized')
+    plt.title(f'PSI(X) after {i*big_step*dt:.2e} s')
     plt.savefig(f'{path}/figs/Crank_Dat_{i*big_step}_steps.png')
     plt.clf()
 
